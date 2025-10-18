@@ -22,21 +22,21 @@ final class BuyOneGetOneHalfOff implements CalculateDiscountInterface
      */
     public function apply(array $items): float
     {
-        $count = 0;
+        $targetItemCount = 0;
         $unitPrice = null;
 
         foreach ($items as $item) {
             if ($item->code === $this->targetCode) {
-                $count++;
+                $targetItemCount++;
                 $unitPrice ??= $item->price;
             }
         }
 
-        if ($unitPrice === null || $count < 2) {
+        if ($unitPrice === null || $targetItemCount < 2) {
             return 0.0;
         }
 
-        $pairs = intdiv($count, 2);
+        $pairs = intdiv($targetItemCount, 2);
         $discount = $pairs * ($unitPrice * 0.5);
         $roundedDiscount = round($discount, 2, PHP_ROUND_HALF_UP);
 
