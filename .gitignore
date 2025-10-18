@@ -1,0 +1,22 @@
+# Dependencies
+/vendor/
+
+# PHPUnit caches
+/.phpunit.result.cache
+/.phpunit.cache
+
+# PHPStan cache
+/.phpstan-cache/
+
+# Coverage and build artifacts
+/coverage/
+
+# IDE/editor
+/.idea/
+/.vscode/
+
+# OS files
+.DS_Store
+
+# PHP-CS-Fixer cache
+/.php-cs-fixer.cache
